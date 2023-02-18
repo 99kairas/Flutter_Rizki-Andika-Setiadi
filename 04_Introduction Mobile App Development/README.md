@@ -30,3 +30,6 @@ Seperti yang sudah disinggung di pengertian software tadi, pengembangan software
 Proses pengembangan aplikasi untuk perangkat mobile terbagi menjadi dua yaitu :
  - iOS -> Yang berjalan pada sistem operasi iOS dan dikembangkan oleh perusahaan bernama Apple
  - Android -> Yangberjalan di sistem operasi Android dan untuk perkembangannya bersifat luas karena open source.
+
+ Untuk link praktikum yang versi Google Docs : 
+https://docs.google.com/document/d/1uu70g9-iY2bwv48XCP6JPvWEfE3nMF_ppEcmmUUO1-o/edit?usp=sharing
