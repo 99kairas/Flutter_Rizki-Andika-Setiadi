@@ -1,0 +1,36 @@
+### Tugas
+
+### Soal Prioritas 1 (80)
+
+- Buatlah sebuah repository pada Github dengan nama repositorynya NamaKelas_NamaKalian, contohnya:
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/97283d4f-6899-4869-9326-77a8ff184ecf/Untitled.png)
+
+- Buat folder didalam repository kalian dengan format seperti dibawah ini.
+    - 2_Basic Version and Branch management
+    - 3_Introduction Mobile App Development
+    - buat folder sesuai dengan section pada platform [Alta.id](http://alta.id/), contohnya seperti dibawah ini
+    
+    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4d844f4e-2c4d-4f82-815d-d08fcb84f78c/Untitled.png)
+    
+- Didalam foldernya, buatlah sub folder seperti dibawah ini
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6ca68605-035f-4b52-b1c5-c8f9f5a956da/Untitled.png)
+
+### Soal Prioritas 2 (20)
+
+- Buat sebuah repository pada Github
+- Buatlah branch pada repository yang terdiri dari:
+    - Branch Master
+    - Branch Development
+    - Branch FeatureA
+    - Branch FeatureB
+- Gunakan command command git seperti push, pull, merge dan stash
+- Implementasikan sebuah penanganan conflict di branch development ketika setelah melakukan merge dari branch featureA lalu merge dari featureB (Conflict dapat terjadi ketika mengerjakan di file dan di line yang sama)
+
+### Soal Eksplorasi (20)
+
+- Dengan project terserah kalian, praktikkan salah satu workflow serderhana dan buktikan dengan Screenshoot. github flow/gitflow/trunk base
+
+Jawaban dalam bentuk screenshot : 
+https://github.com/99kairas/Flutter_Rizki-Andika-Setiadi/tree/main/05_Basic%20Version%20and%20Branch%20Management%20(Git)/Screenshots
