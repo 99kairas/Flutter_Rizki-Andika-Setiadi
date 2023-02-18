@@ -1,1 +1,5 @@
-# Flutter_Rizki-Andika-Setiadi
+Rangkuman Materi Basic Version and Branch Management (Git)
+
+Di dalam git, terdapat sebutan versioning. Versioning adalah cara untuk mengatur versi dari source code suatu program. Lalu, git adalah sebuah version control system yang terkenal yang sudah banyak digunakan oleh para developer untuk mengembangkan software mereka secara bersama - sama. Git dibuat pada tahun 2005 oleh seseorang yang berasal dari Finlandia yang bernama Linus Torvalds. 
+
+Git akan melacak setiap perubahan yang terjadi di dalamnya, maka dari itu banyak developer yang menggunakan software ini untuk kolaborasi. Di dalam git, terdapat fitur bernama commit, commit berfungsi untuk menyimpan perubahan yang nantinya akan dilakukan tetapi tidak akan terjadi perubahan pada repository tersebut atau sederhananya commit itu adalah catatan perubahan.
