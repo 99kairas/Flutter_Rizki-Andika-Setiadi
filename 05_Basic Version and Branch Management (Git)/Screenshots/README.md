@@ -18,3 +18,5 @@ Penjelasan Soal Prioritas 2:
 3. file Prio2.3.png -> Screenshot tentang penambahan feature A di dalam folder Kumpulan Feature yang dibuat di branch Development. Jadi di branch Development sudah tersedia folder Kumpulan Feature, di screenshot ini hanya membuat featureA.dart dan mengimplementasikan perintah git checkout, pull, add, commit dan status
 
 4. file Prio2.4.png -> Screenshot yang menjalankan perintah git merge dan git fetch
+
+5. file prio2.5.png -> Screenshot tentang conflict
