@@ -20,3 +20,18 @@ Penjelasan Soal Prioritas 2:
 4. file Prio2.4.png -> Screenshot yang menjalankan perintah git merge dan git fetch
 
 5. file prio2.5.png -> Screenshot tentang conflict
+
+Penjelasan Soal Eksplorasi (Terdapat branch main - development - buttonHome - buttonCart - buttonAccount):
+1. file eksplorasi0.png -> Screenshot tentang branch development yang masih kosong
+
+2. file eksplorasi1.png -> Screenshot di branch buttonHome dan menambahkan kodingan serta melakukan commit dan push
+
+3. file eksplorasi2.png -> Screenshot di branch buttonCart dan menambahkan kodingan serta melakukan commit dan push
+
+4. file eksplorasi3.png -> Screenshot di branch buttonAccount dan menambahkan kodingan serta melakukan commit dan push
+
+5. file eksplorasi4.png -> Screenshot di branch development dan melakukan git merge dari ketiga branch.
+
+6. file eksplorasi5.png -> Screenshot di branch main yang masih kosong.
+
+7. file eksplorasi6.pmg -> Screenshot di branch main setelah dilakukan git merge dari development.
