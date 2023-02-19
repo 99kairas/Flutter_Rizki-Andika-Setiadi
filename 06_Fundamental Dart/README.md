@@ -1,11 +1,13 @@
 Rangkuman Materi Fundamental Dart
-
- 1. Apa dan mengapa Dart?---
+<details>
+ <summary>1. Apa dan mengapa Dart?</summary>
+ <br>
     Bahasa pemrograman open source dan dirancang untuk memmbuat aplikasi agar dapat berjalan dengan cepat dan didirikan oleh Google. Dart dibuat untuk menggantikan Javascript karena dinilai banyak kelemahan, bisa berjalan dalam sisi fornt end. Dart dipilih banyak orang karena:
     1. Type Safe -> Menjamin konsisten dari tipe data
     2. Null Safety -> Memberikan keamanan dari data yang bernilai null/kosong
     3. Rich Standard Library -> Dart mempunyai banyak dukungan library internal.
     4. Multiplatform -> Dart bisa berjalan pada berbagai jenis perangkat.
+    </details>
 
 
  2. Fungsi Main---
