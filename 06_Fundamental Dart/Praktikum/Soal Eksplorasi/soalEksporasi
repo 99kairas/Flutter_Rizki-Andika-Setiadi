@@ -1,0 +1,22 @@
+### Soal Eksplorasi (20)
+
+1. Buatlah sebuah program untuk mengecek apakah sebuah kata merupakan sebuah palindrom atau bukan. Palindrom adalah sebuah kata yang jika dibalik dari kata aslinya memiliki cara baca atau susunan yang sama persis.
+    
+    **Sampel Input:** `kasur rusak`
+    
+    **Sampel Output:** `palindrom`
+    
+    Penjelasan: kata `kasur rusak` jika dibalik adalah `kasur rusak` sehingga kata ini merupakan kata palindrom.
+    
+    **Sampel Input:** `mobil balap`
+    
+    **Sampel Output:** `bukan palindrom` 
+    
+    Penjelasan: kata `mobil balap` jika dibalik adalah `palab libom` sehingga kata ini bukan palindrom karena ketika dibalik cara membacanya menjadi berbeda.
+    
+
+1. Buatlah sebuah program untuk mencari faktor dari sebuah bilangan yang dimasukkan.
+    
+    ************************************Sampel Input:************************************ `24`
+    
+    ************Sampel Output:************
