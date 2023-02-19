@@ -32,7 +32,7 @@ Rangkuman Materi Fundamental Dart
 
 <details>
  <summary>4. Variabel</summary><br>
-    Untuk menyimpan data di program seperti contoh box di memori yang akan menyimpan nilai/value, di box tersebut mempunyai nama dan juga tipe data. Dalam pendeklarasian variabel kita bisa menggunakan var dan diikuti dengan nama variabel, maka akan secara otomatis tipe data tersebut nilainya adalah null. ntuk menambahkan nilai pada variabel bisa menggunakkan tanda assignment atau tanda sama dengan ( = ). Selain itu kita bisa mendeklarasikan variabel dan juga memberikan nilai secara bersamaan. Contoh:<br>
+    Variabel adalah metode untuk menyimpan data di program atau bisa diasumsikan seperti contoh box yang memiliki memori yang didalamnya akan menyimpan nilai/value, di box tersebut mempunyai nama dan juga tipe data. Dalam pendeklarasian variabel kita bisa menggunakan "var" dan diikuti dengan nama variabel, maka akan secara otomatis tipe data tersebut nilainya adalah null. Untuk menambahkan nilai pada variabel bisa menggunakkan operator Assignment atau tanda sama dengan ( = ). Selain itu kita bisa mendeklarasikan variabel dan juga memberikan nilai secara bersamaan. Contoh:<br>
     
     void main(){
         var usia;
@@ -45,7 +45,7 @@ Rangkuman Materi Fundamental Dart
 
  <details>   
  <summary>5. Konstanta</summary><br>
-    Digunakan untuk menyimpan data namun nilai yang sudah diinisialisasikan bernilai konstan/tidak dapat diubah, konstanta memiliki nama dan juga tipe data. Untuk menggunakan konstanta bisa langsung diberikan tipenya menggunakan "final" tanpa kutip dan diikuti nama serta diberikan value secara langsung. Jadi variabel konstanta hanya bisa disetting satu kali aja. Contoh:<br>
+    Digunakan untuk menyimpan data namun nilai yang sudah diinisialisasikan bernilai konstan/tidak dapat diubah, konstanta memiliki nama dan juga tipe data. Untuk menggunakan konstanta bisa langsung diberikan tipenya menggunakan "final" tanpa kutip dan diikuti dengan nama serta diberikan value secara langsung. Jadi variabel konstanta hanya bisa disetting satu kali aja. Contoh:<br>
     
     void main(){
         final phi = 3.14;
@@ -56,7 +56,7 @@ Rangkuman Materi Fundamental Dart
 
 <details>
  <summary>6. Tipe Data</summary><br>
-    Bahasa Dart adalah bahasa pemrograman yang Staticly Type yang artinya kita harus saat deklarasi variabel kita harus menentukan tipe datanya. Dart memiliki tipe data primitif yaitu integer (bilangan bulat), double (bilangan pecahan atau desimal), boolean (true/flase) dan juga String (teks atau karakter). Untuk value di tipe data double dipisahkan menggunakan titik (dot) bukan koma, untuk value di String penulisan teks diawali dan diakhir tanda kutip. Contoh:<br>
+    Bahasa Dart adalah bahasa pemrograman yang Statically Type yang artinya saat deklarasi variabel kita harus menentukan tipe datanya. Dart memiliki tipe data primitif yaitu integer (bilangan bulat), double (bilangan pecahan atau desimal), boolean (true/false) dan juga String (teks atau karakter). Untuk value di tipe data double dipisahkan menggunakan titik (dot) bukan koma, untuk value di String penulisan teks diawali dan diakhir tanda kutip. Contoh:<br>
     
     void main(){
         int usia = 20;
@@ -69,7 +69,7 @@ Rangkuman Materi Fundamental Dart
 
 <details>
  <summary>7. Operator</summary><br>
-    Dart operator memberikan instruksi kepada komputer untuk pengolahan data, data yang dikelola disebut operand. Dart mendukung operator Aritmatika (+, -, *, /, %). Lalu ada operator Assignment yaitu memberi nilai pada variabel (=, +=, -+, dan lain lain), Comparison untuk membandingkan kesetaraan nilai (==, <, <=, dan lain lain), Logical menggabungkan beberapa kondisi untuk mengecek nilai boolean (&&, ||, !) Contoh:<br>
+    Dart operator memberikan instruksi kepada komputer untuk pengolahan data, data yang dikelola disebut operand. Dart mendukung operator Aritmatika untuk perhitungan matematika (+, -, *, /, % (Modulus/sisa pembagian)), lalu ada operator Assignment yaitu memberi nilai pada variabel (=, +=, -+, *=, /=, %=), Comparison untuk membandingkan kesetaraan nilai (==, <, <=, >, >=), Logical menggabungkan beberapa kondisi untuk mengecek nilai boolean (&& (DAN), || (OR), !) Contoh:<br>
     
     void main(){
         // ARITMATHIC
