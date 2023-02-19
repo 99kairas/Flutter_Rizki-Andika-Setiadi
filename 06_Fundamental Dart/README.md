@@ -27,32 +27,32 @@ Rangkuman Materi Fundamental Dart
 
 - Variabel
     Untuk menyimpan data di program seperti contoh box di memori yang akan menyimpan nilai/value, di box tersebut mempunyai nama dan juga tipe data. Dalam pendeklarasian variabel kita bisa menggunakan var dan diikuti dengan nama variabel, maka akan secara otomatis tipe data tersebut nilainya adalah null. ntuk menambahkan nilai pada variabel bisa menggunakkan tanda assignment atau tanda sama dengan ( = ). Selain itu kita bisa mendeklarasikan variabel dan juga memberikan nilai secara bersamaan. Contoh:
-    void main(){
+    ```void main(){
         var usia;
         usia = 20;
         // ATAU
-        var nama = "Rizki Andika Setiadi"
-    }
+        var nama = "Rizki Andika Setiadi";
+    }```
     
 - Konstanta
     Digunakan untuk menyimpan data namun nilai yang sudah diinisialisasikan bernilai konstan/tidak dapat diubah, konstanta memiliki nama dan juga tipe data. Untuk menggunakan konstanta bisa langsung diberikan tipenya menggunakan "final" tanpa kutip dan diikuti nama serta diberikan value secara langsung. Jadi variabel konstanta hanya bisa disetting satu kali aja. Contoh:
-    void main(){
+    ```void main(){
         final phi = 3.14;
         phi = 3.5; // BARIS INI AKAN ERROR KARENA FINAL TIDAK BISA DIBERIKAN NILAI BARU/TIDAK DAPAT DIUBAH
-    }
+    }```
 
 - Tipe Data
     Bahasa Dart adalah bahasa pemrograman yang Staticly Type yang artinya kita harus saat deklarasi variabel kita harus menentukan tipe datanya. Dart memiliki tipe data primitif yaitu integer (bilangan bulat), double (bilangan pecahan atau desimal), boolean (true/flase) dan juga String (teks atau karakter). Untuk value di tipe data double dipisahkan menggunakan titik (dot) bukan koma, untuk value di String penulisan teks diawali dan diakhir tanda kutip. Contoh:
-    void main(){
+    ```void main(){
         int usia = 20;
         double beratBadan = 60.5;
         bool pria = true;
         String nama = "Rizki Andika Setiadi";
-    }
+    }```
 
 - Operator
     Dart operator memberikan instruksi kepada komputer untuk pengolahan data, data yang dikelola disebut operand. Dart mendukung operator Aritmatika (+, -, *, /, %). Lalu ada operator Assignment yaitu memberi nilai pada variabel (=, +=, -+, dan lain lain), Comparison untuk membandingkan kesetaraan nilai (==, <, <=, dan lain lain), Logical menggabungkan beberapa kondisi untuk mengecek nilai boolean (&&, ||, !) Contoh:
-    void main(){
+    ```void main(){
         // ARITMATHIC
         print(1 + 2);
 
@@ -65,7 +65,7 @@ Rangkuman Materi Fundamental Dart
 
         // LOGICAL
         print(1 == 2 && 2 == 1);
-    }
+    }```
 
 
     Note:
