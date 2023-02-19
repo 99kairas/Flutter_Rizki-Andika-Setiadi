@@ -13,10 +13,12 @@ Rangkuman Materi Fundamental Dart
  <summary>2. Fungsi Main</summary>
  <br>
     Fungsi Main adalah bagian yang akan dijalankan pertama kali, bisa bertipe data void ataupun int dan memiliki nama main. Perintah print di dalam bahasa Dart berfungsi untuk menampilkan data ke layar. Contohnya:<br>
-    ``void main(){
+    
+    void main(){
         print("Selamat datang di Bahasa Pemrograman Dart");
-    }``
+    }
     Void artinya tidak akan mengembalikan nilai apapun
+    
 </details>
 
 <details>
