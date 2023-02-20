@@ -1,0 +1,20 @@
+### Soal Prioritas 2 (20)
+
+## Tugas Looping
+
+1. Buatlah sebuah piramid bintang seperti gambar dibawah ini:
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d6af7940-5b3a-4b75-b362-f95301f72098/Untitled.png)
+
+1. Buatlah sebuah jam pasir seperti pada gambar dibawah ini
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/487b3dd7-7dfb-4497-adb0-01e72917e138/Untitled.png)
+
+1. tampilkan faktorial dari nilai nilai dibawah in:
+    1. 10
+    2. 40
+    3. 50
+
+## Tugas Function
+
+1. Buatlah sebuah function dengan parameter untuk menghitung luas lingkaran. kemudian function lingkaran tersebut dijalankan pada function main!

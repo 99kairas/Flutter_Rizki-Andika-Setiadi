@@ -1,0 +1,16 @@
+1. Buatlah sebuah program untuk mengecek apakah sebuah bilangan termasuk bilangan prima atau bukan.
+    
+    ****************************Sampel Input:**************************** `23`
+    
+    ****************Sampel Output:**************** `bilangan prima`
+    
+    ************************************Sampel Input:************************************ `12`
+    
+    ******************************Sampel Output:****************************** `bukan bilangan prima`
+    
+
+2. Buatlah sebuah program untuk mencetak tabel perkalian.
+    
+    ********Sampel Input:******** `9`
+    
+    ******************************Sampel Output:******************************

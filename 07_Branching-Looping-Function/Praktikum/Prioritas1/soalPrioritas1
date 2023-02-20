@@ -1,0 +1,13 @@
+### Soal Prioritas 1 (80)
+
+## Tugas Percabangan(Branching)
+
+1. Terdapat sebuah nilai:
+    1. jika nilai > 70 akan mereturn “Nilai A”
+    2. jika nilai > 40 akan mereturn “Nilai B”
+    3. jika nilai > 0 akan mereturn “Nilai C”
+    4. selain itu return teks kosong
+
+## Tugas Perulangan(Looping)
+
+1. tampilkan nilai 1 - 10 pada layar dengan menggunakan perulangan!
