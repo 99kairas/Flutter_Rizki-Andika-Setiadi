@@ -2,22 +2,22 @@ Rangkuman Materi Branching Looping dan Function
 <details>
 <summary>Pengambilan Keputusan</summary>
 Menentukan alur program pada kondisi tertentu. if(memerlukan nilai bool dari operator logika atau comparison lalu menjalankan bagian proses apabila nilai boolean bernilai true/benar. Suatu ekspresi akan menguji suatu kondisi, apabila true blok program akan dijalankan namun apabila false maka proses tersebut akan dilewatkan. Ekspresi bisa dituliskan seperti :<br>
-
+```
 if(nilai_bool){
     // AKAN DIPROSES APABILA NILAI TRUE
 }
-
+```
 Contoh:<br>
-
+```
 void main(){
 int usia = 18;
     if(usia < 20){
         print('Usia remaja');
     }
 }
-
+```
 Terdapat perintah else apabila nilai booleannya adalah false. Contoh penggunaan else:<br>
-
+```
 void main(){
 int usia = 18;
     if(usia < 20){
@@ -26,9 +26,9 @@ int usia = 18;
         print('Tidak memiliki golongan');
     }
 }
-
+```
 Kita bisa menambah alternatif lain jika saat kondisi pertama false apabila di kondisi kedua kemungkinan true. Contoh penggunaan else if:<br>
-
+```
 void main(){
 int usia = 18;
     if(usia < 20){
@@ -39,7 +39,7 @@ int usia = 18;
         print('Tidak memiliki golongan');
     }
 }
-
+```
 </details>
 
 2. Perulangan
