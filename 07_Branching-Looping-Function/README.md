@@ -141,7 +141,8 @@ void main(){
 }
 ```
 
-Fungsi/Function<br>
+<details>
+<summary>Fungsi/Function</summary>
 - Kumpulan perintah atau prosedur yang dapat digunakan ulang berkali kali, kita cukup mengubah fungsi sekali maka penggunaan lainnya akan ikut berubah juga. Cara membuat fungsi:<br>
 
 ```
@@ -210,3 +211,5 @@ void main(){
     print(hasil);
 }
 ```
+
+</details>
