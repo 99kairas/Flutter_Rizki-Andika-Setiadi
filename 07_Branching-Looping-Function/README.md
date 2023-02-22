@@ -1,7 +1,7 @@
 # Rangkuman Materi Branching Looping dan Function
 
 <details open> 
-<summary>Pengambilan Keputusan</summary>
+<summary>PENGAMBILAN KEPUTUSAN</summary>
 Menentukan alur program pada kondisi tertentu. if(memerlukan nilai bool dari operator logika atau comparison lalu menjalankan bagian proses apabila nilai boolean bernilai true/benar. Suatu ekspresi akan menguji suatu kondisi, apabila true blok program akan dijalankan namun apabila false maka proses tersebut akan dilewatkan. Ekspresi bisa dituliskan seperti :<br>
 
 ```
@@ -52,7 +52,7 @@ int usia = 18;
 </details>
 
 <details>
-<summary>Perulangan</summar>
+<summary>PERULANGAN</summary>
 Perulangan adalah menjalankan proses berulang kali<br>
 - FOR -> Untuk for, dapat diketahui berapa kali perulangan yang diinginkan. For juga memerlukan nilai awal, nilai bool (jika nilai true maka perulangan akan dilanjutkan) dan memerlukan pengubah nilai. Cara penulisan perulangan for:<br>
     
@@ -107,14 +107,16 @@ void main(){
 ```
 
 </details>
-    
-Break dan Continue
-Perulangan menggunakan nilai bool untuk lanjut atau berhenti. Break dan continue dapat menghentikan perulangan dengan mengabaikan nilai bool, untuk continue dapat menghentikan satu kali proses. Perbedaan:
-Break -> Menghentikan seluruh proses perulangan.
-Continue -> Menghentikan satu kali proses perulangan.
-Cara penulisan break dan continue:
-Break:
 
+<details>
+<summary>BREAK dan CONTINUE</summary>
+Perulangan menggunakan nilai bool untuk lanjut atau berhenti. Break dan continue dapat menghentikan perulangan dengan mengabaikan nilai bool, untuk continue dapat menghentikan satu kali proses. Perbedaan:<br>
+Break -> Menghentikan seluruh proses perulangan.<br>
+Continue -> Menghentikan satu kali proses perulangan.<br>
+Cara penulisan break dan continue:<br>
+Break:<br>
+
+```
 void main(){
     for(var i = 0; true; i++){
         if(i == 10){
@@ -123,9 +125,11 @@ void main(){
         print(i);
     }
 }
+```
 
-Continue:
+Continue:<br>
 
+```
 void main(){
     for(var i = 0; i < 10; i+=1){
         if(i == 5){
@@ -134,53 +138,74 @@ void main(){
         print(i);
     }
 }
+```
 
-Fungsi/Function
-- Kumpulan perintah atau prosedur yang dapat digunakan ulang berkali kali, kita cukup mengubah fungsi sekali maka penggunaan lainnya akan ikut berubah juga. Cara membuat fungsi:
+Fungsi/Function<br>
+- Kumpulan perintah atau prosedur yang dapat digunakan ulang berkali kali, kita cukup mengubah fungsi sekali maka penggunaan lainnya akan ikut berubah juga. Cara membuat fungsi:<br>
 
+```
 tipe_data nama_fungsi(){
     // Perintah yang dijalankan saat fungsi dipanggil.
 }
+```
 
-Setelah membuat fungsi, kita bisa memanggil fungsi tersebut di dalam fungsi main. Contoh:
+Setelah membuat fungsi, kita bisa memanggil fungsi tersebut di dalam fungsi main. Contoh:<br>
 
+```
 void halo(){
     print('Ini adalah fungsi halo');
 }
+```
 
+```
 void main(){
     halo();
 }
+```
 
-- Fungsi dengan Parameter
+- Fungsi dengan Parameter<br>
+
+```
 tipe_data nama_fungsi(tipe_data nama_parameter){
     // Perintah yang dijalankan saat fungsi dipanggil;
 }
+```
 
-Setelah membuat fungsi, kita bisa memanggil fungsi tersebut di dalam fungsi main. Contoh:
+Setelah membuat fungsi, kita bisa memanggil fungsi tersebut di dalam fungsi main. Contoh:<br>
 
+```
 void tampil(String teks){
     print(teks);
 }
+```
 
+```
 void main(){
     tampil('Halo');
     tampil('Selamat datang');
 }
+```
 
-- Fungsi dengan Return -> Memberi nilai pada fungsi saat dipanggil:
+- Fungsi dengan Return -> Memberi nilai pada fungsi saat dipanggil:<br>
+
+```
 tipe_data nama_fungsi(tipe_data nama_parameter){
     // Perintah yang dijalankan saat fungsi dipanggil;
     return nilai;
 }
+```
 
-Setelah membuat fungsi, kita bisa memanggil fungsi tersebut di dalam fungsi main. Contoh:
+Setelah membuat fungsi, kita bisa memanggil fungsi tersebut di dalam fungsi main. Contoh:<br>
 
+```
 int jumlah(int a, int b){
     return a + b;
 }
+```
 
+```
 void main(){
     var hasil = jumlah(1, 2);
     print(hasil);
 }
+```
