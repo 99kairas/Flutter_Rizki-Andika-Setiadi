@@ -1,6 +1,7 @@
 # Rangkuman Materi Branching Looping dan Function
 
-<details open  ###> Pengambilan Keputusan
+<details open> 
+<summary>Pengambilan Keputusan</summary>
 Menentukan alur program pada kondisi tertentu. if(memerlukan nilai bool dari operator logika atau comparison lalu menjalankan bagian proses apabila nilai boolean bernilai true/benar. Suatu ekspresi akan menguji suatu kondisi, apabila true blok program akan dijalankan namun apabila false maka proses tersebut akan dilewatkan. Ekspresi bisa dituliskan seperti :<br>
 
 ```
@@ -50,48 +51,62 @@ int usia = 18;
 
 </details>
 
-2. Perulangan
-Perulangan adalah menjalankan proses berulang kali
-    - FOR -> Untuk for, dapat diketahui berapa kali perulangan yang diinginkan. For juga memerlukan nilai awal, nilai bool (jika nilai true maka perulangan akan dilanjutkan) dan memerlukan pengubah nilai. Cara penulisan perulangan for:
+<details>
+<summary>Perulangan</summar>
+Perulangan adalah menjalankan proses berulang kali<br>
+- FOR -> Untuk for, dapat diketahui berapa kali perulangan yang diinginkan. For juga memerlukan nilai awal, nilai bool (jika nilai true maka perulangan akan dilanjutkan) dan memerlukan pengubah nilai. Cara penulisan perulangan for:<br>
     
-    for(nilai_awal; nilai_bool; pengubah_nilai_awal){
+```
+for(nilai_awal; nilai_bool; pengubah_nilai_awal){
+     // PROSES BERULANG KALI JIKA NILAI BOOL ADALAH TRUE;
+}
+```
+
+```  
+ void main(){
+    for(var i = 0; i < 10; i+= 1){
+         print(i);
+    }
+}
+```
+
+- WHILE -> While memerlukan nilai boolean, jika true maka perulangan akan dilanjutkan. Dan berbeda seperti for, wile tidak dapat diketahui berapa kali perulangan terjadi. Cara penulisan perulangan while:<br>
+
+```
+while(nilai_bool){
         // PROSES BERULANG KALI JIKA NILAI BOOL ADALAH TRUE;
+}
+```
+
+```
+void main(){
+    var i = 0;
+    while(i < 10){
+        print(i);
+        i++;
     }
-    
-    void main(){
-        for(var i = 0; i < 10; i+= 1){
-            print(i);
-        }
-    }
-    
+}
+```
 
-    - WHILE -> While memerlukan nilai boolean, jika true maka perulangan akan dilanjutkan. Dan berbeda seperti for, wile tidak dapat diketahui berapa kali perulangan terjadi. Cara penulisan perulangan while:
+- DO-WHILE -> Mengubah bentuk while dan proses dijalankan minimal satu kali walaupun nilai pertama adalah false namun akan diteruskan apabila nilai bool adalah true. Cara penulisan perulangan do-while:<br>
 
-    while(nilai_bool){
-        // PROSES BERULANG KALI JIKA NILAI BOOL ADALAH TRUE;
-    }
+```
+do{
+    // PROSES BERULANG JIKA NILAI BOOL ADALAH TRUE;
+} while(nilai_bool);
+```
 
-    void main(){
-        var i = 0;
-        while(i < 10){
-            print(i);
-            i++;
-        }
-    }
-
-    - DO-WHILE -> Mengubah bentuk while dan proses dijalankan minimal satu kali walaupun nilai pertama adalah false namun akan diteruskan apabila nilai bool adalah true. Cara penulisan perulangan do-while:
-
+```
+void main(){
+    var i = 0;
     do{
-        // PROSES BERULANG JIKA NILAI BOOL ADALAH TRUE;
-    } while(nilai_bool);
+        print(i);
+        i++
+    } while(i < 10);
+}
+```
 
-    void main(){
-        var i = 0;
-        do{
-            print(i);
-            i++
-        } while(i < 10);
-    }
+</details>
     
 Break dan Continue
 Perulangan menggunakan nilai bool untuk lanjut atau berhenti. Break dan continue dapat menghentikan perulangan dengan mengabaikan nilai bool, untuk continue dapat menghentikan satu kali proses. Perbedaan:
