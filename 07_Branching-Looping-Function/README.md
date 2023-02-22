@@ -54,6 +54,7 @@ int usia = 18;
 <details>
 <summary>PERULANGAN</summary>
 Perulangan adalah menjalankan proses berulang kali<br>
+
 - FOR -> Untuk for, dapat diketahui berapa kali perulangan yang diinginkan. For juga memerlukan nilai awal, nilai bool (jika nilai true maka perulangan akan dilanjutkan) dan memerlukan pengubah nilai. Cara penulisan perulangan for:<br>
     
 ```
