@@ -1,5 +1,6 @@
-Rangkuman Materi Branching Looping dan Function
-<details>
+## Rangkuman Materi Branching Looping dan Function
+
+<details open>
 <summary>Pengambilan Keputusan</summary>
 Menentukan alur program pada kondisi tertentu. if(memerlukan nilai bool dari operator logika atau comparison lalu menjalankan bagian proses apabila nilai boolean bernilai true/benar. Suatu ekspresi akan menguji suatu kondisi, apabila true blok program akan dijalankan namun apabila false maka proses tersebut akan dilewatkan. Ekspresi bisa dituliskan seperti :<br>
 
