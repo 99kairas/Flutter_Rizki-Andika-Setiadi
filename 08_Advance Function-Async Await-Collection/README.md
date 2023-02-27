@@ -129,7 +129,7 @@ void main() async{
 
 </summary>
 
-Strukture data yang lebih canggih untuk menangani masalah yang lebih kompleks, collection bisa menyimpan kumpulan dalam satu tempat.<br>
+Strukture data yang lebih canggih untuk menangani masalah yang lebih kompleks, Collection bisa menyimpan kumpulan data dalam satu tempat.<br>
 - ### List
 Menyimpan data secara berbaris, tiap data memiliki index. Contoh simulasi : <br>
 
