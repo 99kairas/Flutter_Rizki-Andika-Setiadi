@@ -3,7 +3,7 @@
 <details open>
 <summary>
 
-## FUNGSI LANJUTAN
+## Fungsi Lanjutan
 
 </summary>
 
@@ -54,7 +54,11 @@ Penjelasan : Fungsi hello melakukan print didalamnya dan fungsi jumlah memberi n
 </details>
 
 <details>
-<summary>ASYNC-AWAIT</summary>
+<summary>
+
+## Async-Await
+
+</summary>
 Dengan menggunakan async-await ini kita dapat menjalankan beberapa proses tanpa perlu menunggu, lalu proses ditulis dalam bentuk fungsi dan await akan menunggu hingga proses async selesai. Jika disimulasikan, contoh proses async adalah saat kita memiliki sebuah fungsi P1 dan P2 dimana P1 memiliki proses async selama 1 detik. Maka fungsi P1 akan dijalankan setelah menunggu satu detik terlebih dahulu, namun apabila P2 tidak memiliki proses async, maka ketika fungsi dijalankan dia akan langsung mengeluarkan output. Atau sederhananya adalah fungsi p2 akan dijalankan terlebih dahulu daripada fungsi p1 karena perintah dari Future-delayed. Simulasinya sebagai berikut  : <br>
 
 ```
@@ -96,7 +100,11 @@ void main() async{
 </details>
 
 <details>
-<summary>TIPE DATA FUTURE</summary>
+<summary>
+
+## Tipe Data Future
+
+</summary>
 Dengan menggunakan future dapat menggunakan proses yang dapat ditunggu atau diberikan durasi lalu membawa data return dari fungsi async. Pada Future sendiri berjalan secara asyncronus. Penggunaan Future : <br>
 
 ```
@@ -115,7 +123,11 @@ void main() async{
 </details>
 
 <details>
-<summary>COLLECTION</summary>
+<summary>
+
+## Collection
+
+</summary>
 
 Strukture data yang lebih canggih untuk menangani masalah yang lebih kompleks, collection bisa menyimpan kumpulan dalam satu tempat.<br>
 - ### List
