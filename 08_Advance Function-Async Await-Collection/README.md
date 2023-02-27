@@ -1,7 +1,11 @@
 # Rangkuman Materi Advance Function-Async Await-Collection
 
 <details open>
-<summary>FUNGSI LANJUTAN</summary>
+<summary>
+
+## FUNGSI LANJUTAN
+
+</summary>
 
 - ### Anonymous Function
     Tidak memiliki nama, fungsi/function dijadikan sebagai data.<br>
