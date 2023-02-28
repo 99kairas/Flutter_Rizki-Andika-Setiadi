@@ -11,6 +11,7 @@ Object Oriented Programming adalah paradigma pemrograman yang berkonsep objek, k
 Keuntungan OOP : <br>
 1. ### Mudah ditroubleshoot
 Ketika terjadi error pada program bisa tau tanpa memeriksa baris perbaris. <br>
+
 2. ### Mudah digunakan ulang
 Beberapa objek memiliki kesamaan ciri dan perilaku sehingga tidak perlu dibuat ulang di dalam program kita. Penggunaan OOP sering digunakan di bahasa lain seperti C++, Java, Python dan lain - lain. <br>
 
