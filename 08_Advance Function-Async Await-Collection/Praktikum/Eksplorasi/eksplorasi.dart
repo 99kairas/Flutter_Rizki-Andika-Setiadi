@@ -11,8 +11,11 @@ void main(List<String> args) {
     'HKS'
   ];
   var uniqueItem = itemName.toSet().toList();
-  print(uniqueItem);
+  print(itemName);
+  print('Data yang telah dibersihkan:\n$uniqueItem');
 
+  print('=================');
+  
   List<String> itemName2 = [
     'JS Racing',
     'Amuse',
@@ -22,7 +25,11 @@ void main(List<String> args) {
     'Amuse'
   ];
   var uniqueItem2 = itemName2.toSet().toList();
-  print(uniqueItem2);
+  print(itemName2);
+  print('Data yang telah dibersihkan:\n$uniqueItem2');
+
+  print('===========================');
+  print('Nomor 2');
 
   // NO 2
   List<String> programmingLanguage = [
@@ -46,6 +53,7 @@ void main(List<String> args) {
   var countRust =
       programmingLanguage.where((element) => element.contains('Rust')).length;
 
+  print(programmingLanguage);
   print('JS : $countJS');
   print('Golang : $countGolang');
   print('Python : $countPython');

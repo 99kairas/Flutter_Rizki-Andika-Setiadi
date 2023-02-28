@@ -1,0 +1,15 @@
+1. Buatlah sebuah list dengan spesifikasi berikut:
+    1. Tiap elemen wajib berupa list juga
+    2. tiap element wajib terdapat 2 data(sub-elemen)
+    3. Buatlah sebuah map dengan menggunakan list tersebut
+2. Buatlah sebuah program untuk menghitung rata-rata dari sekumpulan nilai. Lakukan pembulatan keatas untuk nilai hasil perhitungan rata-rata.
+    
+    ****************************Sampel Input:**************************** `[7,5,3,5,2,1]`
+    
+    **************************Sampel Output:************************** `4`
+    
+3. Buatlah sebuah program untuk melakukan perhitungan bilangan faktorial secara asinkron.
+    
+    **********Sampel Input:********** `5`
+    
+    ****Sampel Output:**** `120`

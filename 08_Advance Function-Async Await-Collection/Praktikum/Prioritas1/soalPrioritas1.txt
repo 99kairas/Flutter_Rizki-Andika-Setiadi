@@ -1,0 +1,5 @@
+1. Buatlah sebuah fungsi dengan spesifikasi berikut:
+    1. Menerima 2 parameter, yaitu list data dan pengali
+    2. Lakukan perulangan pada list data secara asynchronous
+    3. Tiap perulangan, kalikan elemen list data dengan pengali
+    4. Return list baru yang berisi hasil proses diatas
