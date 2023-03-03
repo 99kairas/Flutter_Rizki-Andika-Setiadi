@@ -1,3 +1,27 @@
+import 'dart:io';
+
+class Calculator {
+  void penjumlahan(int bilangan1, int bilangan2) {
+    int jumlah = bilangan1 + bilangan2;
+    print('Hasil Penjumlahan dari $bilangan1 + $bilangan2 adalah : $jumlah');
+  }
+
+  void pengurangan(int bilangan1, int bilangan2) {
+    int jumlah = bilangan1 - bilangan2;
+    print('Hasil Pengurangan dari $bilangan1 - $bilangan2 adalah : $jumlah');
+  }
+
+  void perkalian(int bilangan1, int bilangan2) {
+    int jumlah = bilangan1 * bilangan2;
+    print('Hasil Perkalian dari $bilangan1 * $bilangan2 adalah : $jumlah');
+  }
+
+  void pembagian(int bilangan1, int bilangan2) {
+    double jumlah = bilangan1 / bilangan2;
+    print('Hasil Pembagian dari $bilangan1 / $bilangan2 adalah : $jumlah');
+  }
+}
+
 class Course {
   String? judulCourse;
   String? deskripsiCourse;
@@ -13,7 +37,7 @@ class Course {
   }
 }
 
-class Student extends Course{
+class Student extends Course {
   String? namaMahasiswa;
   String? kelasMahasiswa;
   List<Course> daftarCourses = [];
@@ -39,11 +63,26 @@ class Student extends Course{
 }
 
 void main(List<String> args) {
+  // RIZKI ANDIKA SETIADI
+  // NO 1
+  print('NO 1');
+  Calculator calculatorSederhana = Calculator();
+  stdout.write('Masukkan Bilangan 1 : ');
+  int bilanganPertama = int.parse(stdin.readLineSync()!);
+  stdout.write('Masukkan Bilangan 2 : ');
+  int bilanganKedua = int.parse(stdin.readLineSync()!);
+
+  calculatorSederhana.penjumlahan(bilanganPertama, bilanganKedua);
+  calculatorSederhana.pengurangan(bilanganPertama, bilanganKedua);
+  calculatorSederhana.perkalian(bilanganPertama, bilanganKedua);
+  calculatorSederhana.pembagian(bilanganPertama, bilanganKedua);
+
+  print('\nNO 2');
   var courseAlterra1 =
       Course(judulCourse: '2023 Flutter', deskripsiCourse: 'Belajar Flutter');
   var courseAlterra2 =
       Course(judulCourse: 'UI / UX', deskripsiCourse: 'Belajar Desain');
-      var courseAlterra3 =
+  var courseAlterra3 =
       Course(judulCourse: 'Golang', deskripsiCourse: 'Belajar Back-end');
 
   var studentRizki = Student(namaMahasiswa: 'Rizki', kelasMahasiswa: 'Kelas C');
@@ -52,7 +91,6 @@ void main(List<String> args) {
   var studentSetiadi =
       Student(namaMahasiswa: 'Setiadi', kelasMahasiswa: 'Kelas A');
 
-  print('\n');
   studentRizki.tambahCourse(courseAlterra1);
   studentRizki.tambahCourse(courseAlterra2);
   studentRizki.lihatCourse();
