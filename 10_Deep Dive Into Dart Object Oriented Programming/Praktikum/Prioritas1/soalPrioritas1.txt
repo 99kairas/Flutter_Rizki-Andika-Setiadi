@@ -1,0 +1,5 @@
+1. Buat Class dengan spesifikasi sesuai pada gambar dibawah ini
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4ee2dfd0-8322-4cff-ab67-4687872c3a12/Untitled.png)
+
+2. Dari rangkaian Class diatas, buatlah method Overriding untuk membedakan tiap proses dalam method antar Class! sehingga dapat melengkapi pengguaan code dibawah ini

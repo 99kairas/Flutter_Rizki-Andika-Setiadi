@@ -1,0 +1,5 @@
+1. Buatlah Class dengan spesifikasi berikut!
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/996daa93-ad6d-44ce-9763-4f807ae6f98b/Untitled.png)
+
+2. Dari rangkaian diatas,  lengkapi kode berikut sehingga dapat menampilkan hasil pada Layar!
