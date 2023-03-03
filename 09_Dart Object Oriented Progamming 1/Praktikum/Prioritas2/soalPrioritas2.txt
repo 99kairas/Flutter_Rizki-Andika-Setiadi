@@ -1,0 +1,11 @@
+1. Buatlah sebuah class Calculator dengan kriteria sebagai berikut:
+    1. Terdapat method untuk melakukan penjumlahan dua bilangan.
+    2. Terdapat method untuk melakukan pengurangan dua bilangan.
+    3. Terdapat method untuk melakukan perkalian dua bilangan.
+    4. Terdapat method untuk melakukan pembagian dua bilangan.
+2. Buatlah sebuah class Course dan Student dengan kriteria sebagai berikut:
+    1. Atribut dari Course terdiri dari judul dan deskripsi.
+    2. Atribut dari Student terdiri dari nama, kelas dan daftar course yang dimiliki.
+    3. Student dapat menambahkan course.
+    4. Student dapat menghapus course.
+    5. Student dapat melihat semua course yang telah ditambahkan.
