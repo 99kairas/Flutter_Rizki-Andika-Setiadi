@@ -272,7 +272,7 @@ void main(){
 ## Generics
 
 </summary>
-Merupakan kemampuan untuk menambahkan parameter type pada class atau fungsi dengan parameter type ini dapat memberi kemampuan kemampuan agar dapat menerima data dengan tipe data yang berbeda atau dengan tipe data yang kita inginkan. Tipe data yang diinginkan ditentukan saat membuat class atau menjalankan fungsi. Contoh penggunaannya : <br>
+Merupakan kemampuan untuk menambahkan parameter type pada class atau fungsi dengan parameter type ini dapat memberi kemampuan agar dapat menerima data dengan tipe data yang berbeda atau dengan tipe data yang kita inginkan. Tipe data yang diinginkan ditentukan saat membuat class atau menjalankan fungsi. Contoh penggunaannya : <br>
 
 ```
 class Hadiah<T> {
