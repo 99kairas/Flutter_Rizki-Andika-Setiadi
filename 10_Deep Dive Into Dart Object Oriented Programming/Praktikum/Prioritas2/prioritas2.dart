@@ -1,16 +1,42 @@
-class Matematika {
-  void hasil() {}
+abstract class Matematika {
+  hasil(x, y) {}
 }
 
-abstract class KelipatanPersekutuanTerkecil implements Matematika {
-  double? x, y;
+class KelipatanPersekutuanTerkecil implements Matematika {
+  int? x, y = 12;
+
+  @override
+  hasil(x, y) {
+    int fpb1 = fpb(x, y);
+    return (x ~/ fpb1) * y;
+  }
+
+  fpb(x, y) {
+    if (x == 0) {
+      return y;
+    } else {
+      return fpb(y % x, x);
+    }
+  }
 }
 
-abstract class FaktorPersekutuanTerbesar implements Matematika {
-  double? x, y;
+class FaktorPersekutuanTerbesar implements Matematika {
+  int? x, y;
+
+  @override
+  hasil(x, y) {
+    if (y == 0) {
+      return x;
+    } else {
+      return hasil(y, x % y);
+    }
+  }
 }
 
-void main(List<String> args) {}
+void main(List<String> args) {
+  var kpk = KelipatanPersekutuanTerkecil();
+  print('KPK nya adalah : ${kpk.hasil(20, 12)}');
 
-
-
+  var fpb = FaktorPersekutuanTerbesar();
+  print('FPB nya adalah : ${fpb.hasil(20, 12)}');
+}
