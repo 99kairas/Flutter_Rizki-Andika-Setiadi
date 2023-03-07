@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CupertinoHome extends StatelessWidget {
-  const CupertinoHome({super.key});
+class IOSDesignPage extends StatelessWidget {
+  const IOSDesignPage({super.key});
 
   @override
   Widget build(BuildContext context) {

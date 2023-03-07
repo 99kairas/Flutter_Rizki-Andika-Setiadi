@@ -5,14 +5,14 @@ import '../ui/contact_data.dart';
 import 'ios_design_page.dart';
 import 'no1_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class AndroidDesignPage extends StatefulWidget {
+  const AndroidDesignPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<AndroidDesignPage> createState() => _AndroidDesignPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _AndroidDesignPageState extends State<AndroidDesignPage> {
   int _selectedIndex = 0;
   final ScrollController _homeController = ScrollController();
   @override
@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CupertinoHome(),
+                        builder: (context) => IOSDesignPage(),
                       ));
                 },
                 title: const Text(
