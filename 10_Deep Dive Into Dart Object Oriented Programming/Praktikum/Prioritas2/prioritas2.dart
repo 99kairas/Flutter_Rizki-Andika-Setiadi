@@ -3,7 +3,7 @@ abstract class Matematika {
 }
 
 class KelipatanPersekutuanTerkecil implements Matematika {
-  int? x, y = 12;
+  int? x, y;
 
   @override
   hasil(x, y) {
@@ -35,7 +35,7 @@ class FaktorPersekutuanTerbesar implements Matematika {
 
 void main(List<String> args) {
   var kpk = KelipatanPersekutuanTerkecil();
-  print('KPK nya adalah : ${kpk.hasil(20, 12)}');
+  print('KPK nya adalah : ${kpk.hasil(20, 12)}'); 
 
   var fpb = FaktorPersekutuanTerbesar();
   print('FPB nya adalah : ${fpb.hasil(20, 12)}');
