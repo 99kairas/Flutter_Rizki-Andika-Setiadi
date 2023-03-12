@@ -1,0 +1,16 @@
+manfaatkan project yang telah kalian buat pada tugas sebelumnya dan lakukan hal-hal berikut. (pada tahap ini untuk berpindah halaman dapat dilakukan dengan hardcode)
+
+1. Buatlah sebuah halaman baru yang memiliki spesifikasi berikut: [link ilustrasi di figma](https://www.figma.com/file/U4xkGyj43HyyRPeKb56D6J/Alterra-Flutter---Material-3-Design-Kit-(Community)?node-id=53297%3A28236&t=PmyigMnCiCsLnuXS-0)
+    1. Memiliki appbar dengan judul “C**ontacts”**
+    2. memilki icon (gambar bebas)
+    3. memiliki deskripsi (text bebas)
+    4. Buatlah sebuah Title yang bertuliskan “**Create New Contacts**”
+    5. menampilkan sebuah form input nama dan no telp
+    6. menampilkan tombol submit
+    
+    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e34757b3-d577-47fe-95d7-7d7dd43f5af7/Untitled.png)
+    
+2. buatlah sebuah widget baru yang terletak dibawah form “**create new contacts”** dengan spesifikasi berikut:
+    1. Memiliki title “************List Contacts************”
+    2. menampilkkan data nama dan no telp dalam listview
+    3. Jika tombol submit di tekan maka data pada “****************************************List Contracts”**************************************** akan bertambah

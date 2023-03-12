@@ -1,0 +1,12 @@
+Lakukan validasi pada masing-masing form dengan spesifikasi seperti berikut
+
+1. Validasi Nama:
+    - Nama harus diisi oleh user.
+    - Nama harus terdiri dari minimal 2 kata.
+    - Setiap kata harus dimulai dengan huruf kapital.
+    - Nama tidak boleh mengandung angka atau karakter khusus.
+2. Validasi Nomor Telepon:
+    - Nomor telepon harus diisi oleh user.
+    - Nomor telepon harus terdiri dari angka saja.
+    - Panjang nomor telepon harus minimal 8 digit dan maksimal 15 digit.
+    - Nomor telepon harus dimulai dengan angka 0.

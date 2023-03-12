@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:project_form/pages/widget/contact.dart';
 import 'package:project_form/shared/theme.dart';
+import 'package:string_extensions/string_extensions.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,10 +12,21 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomeAppState extends State<HomePage> {
+  final formKey = GlobalKey<FormState>();
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
   TextEditingController contactController = TextEditingController();
   List<Contact> allContact = List.empty(growable: true);
+
+  var selectedIndex = -1;
+
+  @override
+  void dispose() {
+    firstNameController.dispose();
+    lastNameController.dispose();
+    contactController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +36,7 @@ class _HomeAppState extends State<HomePage> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.contact_phone),
+            const Icon(Icons.account_box),
             const SizedBox(
               width: 5,
             ),
@@ -38,6 +51,7 @@ class _HomeAppState extends State<HomePage> {
         ),
       ),
       body: Form(
+        key: formKey,
         child: ListView(
           children: [
             Padding(
@@ -68,14 +82,27 @@ class _HomeAppState extends State<HomePage> {
                   const SizedBox(
                     height: 17,
                   ),
-                  Divider(thickness: 1),
+                  const Divider(thickness: 1),
                   const SizedBox(
                     height: 17,
                   ),
-                  TextField(
+
+                  // FIRST NAME
+                  TextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'First Name tidak boleh kosong!';
+                      }
+                      return null;
+                    },
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[a-z A-Z]')),
+                    ],
                     controller: firstNameController,
                     keyboardType: TextInputType.name,
                     decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: primaryColor)),
                       labelText: 'First Name',
                       hintText: 'Insert Your First Name',
                       labelStyle: greyTextStyle,
@@ -90,10 +117,24 @@ class _HomeAppState extends State<HomePage> {
                   const SizedBox(
                     height: 17,
                   ),
-                  TextField(
+                  // END OF FIRST NAME
+
+                  // LAST NAME
+                  TextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Last Name tidak boleh kosong!';
+                      }
+                      return null;
+                    },
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[a-z A-Z]')),
+                    ],
                     controller: lastNameController,
                     keyboardType: TextInputType.name,
                     decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: primaryColor)),
                       labelText: 'Last Name',
                       hintText: 'Insert Your Last Name',
                       labelStyle: greyTextStyle,
@@ -108,11 +149,32 @@ class _HomeAppState extends State<HomePage> {
                   const SizedBox(
                     height: 17,
                   ),
-                  TextField(
+                  // END OF LAST NAME
+
+                  // NOMOR HP
+                  TextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Nomor Telp tidak boleh kosong!';
+                      } else if (value.length <= 8) {
+                        return "Nomor Telp Wajib Lebih dari 8 angka";
+                      }
+                      return null;
+                    },
+                    maxLines: 1,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      FilteringTextInputFormatter.deny(RegExp('^0+')),
+                    ],
                     maxLength: 15,
                     controller: contactController,
-                    keyboardType: TextInputType.number,
+                    keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: primaryColor,
+                        ),
+                      ),
                       labelText: 'Nomor',
                       prefixText: '+62 ',
                       hintText: '....',
@@ -128,9 +190,12 @@ class _HomeAppState extends State<HomePage> {
                   const SizedBox(
                     height: 15,
                   ),
+                  // END OF NOMOR HP
+
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
+                      // BUTTON SUBMIT
                       SizedBox(
                         width: 94,
                         height: 40,
@@ -141,32 +206,117 @@ class _HomeAppState extends State<HomePage> {
                               borderRadius: BorderRadius.circular(20),
                             ),
                           ),
-                          onPressed: () {
-                            String nameContact =
-                                firstNameController.text.trim();
-                            String contactNumber =
-                                contactController.text.trim();
-                            String lastNameContact =
-                                lastNameController.text.trim();
-                            if (nameContact.isNotEmpty &&
-                                lastNameContact.isNotEmpty &&
-                                contactNumber.isNotEmpty) {
-                              setState(() {
-                                firstNameController.text = '';
-                                lastNameController.text = '';
-                                contactController.text = '';
-                                allContact.add(Contact(
-                                    firstName: nameContact,
-                                    lastName: lastNameContact,
-                                    contact: contactNumber));
-                              });
-                            }
-                          },
+                          onPressed: selectedIndex != -1
+                              ? null
+                              : () {
+                                  if (formKey.currentState!.validate()) {
+                                    String nameContact =
+                                        firstNameController.text.trim();
+                                    String contactNumber =
+                                        contactController.text.trim();
+                                    String lastNameContact =
+                                        lastNameController.text.trim();
+                                    if (nameContact.isNotEmpty &&
+                                        lastNameContact.isNotEmpty &&
+                                        contactNumber.isNotEmpty) {
+                                      setState(() {
+                                        firstNameController.text = '';
+                                        lastNameController.text = '';
+                                        contactController.text = '';
+                                        showDialog(
+                                          context: context,
+                                          builder: (context) => AlertDialog(
+                                            content: Row(
+                                              children: const [
+                                                Expanded(
+                                                  child: Text(
+                                                    'Contact Berhasil Ditambahkan',
+                                                  ),
+                                                ),
+                                                Icon(
+                                                  Icons.check,
+                                                  color: Colors.green,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        );
+                                        allContact.add(Contact(
+                                            firstName: nameContact,
+                                            lastName: lastNameContact,
+                                            contact: contactNumber));
+                                      });
+                                    }
+                                  }
+                                },
                           child: const Text(
                             'Submit',
                           ),
                         ),
                       ),
+                      // END OF BUTTON SUBMIT
+
+                      // BUTTON UPDATE
+                      SizedBox(
+                        width: 94,
+                        height: 40,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: primaryColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          onPressed: selectedIndex >= 0
+                              ? () {
+                                  if (formKey.currentState!.validate()) {
+                                    String nameContact =
+                                        firstNameController.text.trim();
+                                    String contactNumber =
+                                        contactController.text.trim();
+                                    String lastNameContact =
+                                        lastNameController.text.trim();
+                                    if (nameContact.isNotEmpty &&
+                                        lastNameContact.isNotEmpty &&
+                                        contactNumber.isNotEmpty) {
+                                      setState(() {
+                                        firstNameController.text = '';
+                                        lastNameController.text = '';
+                                        contactController.text = '';
+                                        showDialog(
+                                          context: context,
+                                          builder: (context) => AlertDialog(
+                                            content: Row(
+                                              children: const [
+                                                Text(
+                                                  'Contact Berhasil Diperbarui',
+                                                ),
+                                                Icon(
+                                                  Icons.check,
+                                                  color: Colors.green,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        );
+                                        allContact[selectedIndex].firstName =
+                                            nameContact;
+                                        allContact[selectedIndex].lastName =
+                                            lastNameContact;
+                                        allContact[selectedIndex].contact =
+                                            contactNumber;
+                                        selectedIndex = -1;
+                                      });
+                                    }
+                                  }
+                                }
+                              : null,
+                          child: const Text(
+                            'Update',
+                          ),
+                        ),
+                      ),
+                      // END OF BUTTON UPDATE
                     ],
                   ),
                   const SizedBox(
@@ -196,6 +346,9 @@ class _HomeAppState extends State<HomePage> {
                       itemCount: allContact.length,
                     ),
                   ),
+            const SizedBox(
+              height: 100,
+            ),
           ],
         ),
       ),
@@ -206,16 +359,19 @@ class _HomeAppState extends State<HomePage> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Card(
+        elevation: 5,
         child: ListTile(
           leading: CircleAvatar(
+            backgroundColor: index % 2 == 0 ? Colors.cyan : primaryColor,
+            foregroundColor: whiteColor,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(allContact[index].firstName[0]),
-                SizedBox(
+                Text(allContact[index].firstName.toTitleCase![0]),
+                const SizedBox(
                   width: 1,
                 ),
-                Text(allContact[index].lastName[0]),
+                Text(allContact[index].lastName.toTitleCase![0]),
               ],
             ),
           ),
@@ -223,22 +379,45 @@ class _HomeAppState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                  '${allContact[index].firstName} ${allContact[index].lastName}'),
-              Text('+62 ${allContact[index].contact}'),
+                '${allContact[index].firstName.toTitleCase} ${allContact[index].lastName.toTitleCase}',
+                style:
+                    blackTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
+              ),
+              const SizedBox(
+                height: 1,
+              ),
+              Text(
+                '+62 ${allContact[index].contact}',
+                style:
+                    greyTextStyle.copyWith(fontSize: 13, fontWeight: regular),
+              ),
             ],
           ),
           trailing: SizedBox(
             width: 70,
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    firstNameController.text = allContact[index].firstName;
+                    lastNameController.text = allContact[index].lastName;
+                    contactController.text = allContact[index].contact;
+                    setState(() {
+                      selectedIndex = index;
+                    });
+                  },
                   child: Icon(Icons.edit),
                 ),
                 SizedBox(
                   width: 10,
                 ),
                 InkWell(
+                  onTap: () {
+                    setState(() {
+                      allContact.removeAt(index);
+                    });
+                  },
                   child: Icon(Icons.delete),
                 ),
               ],

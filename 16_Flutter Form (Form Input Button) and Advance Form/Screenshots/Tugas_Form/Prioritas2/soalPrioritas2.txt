@@ -1,0 +1,2 @@
+1. Buatlah sebuah fitur untuk menghapus data yang ada pada listview!
+2. Buatlah sebuah fitur untuk melakukan update pada data kontak.
