@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:project_form/pages/widget/contact.dart';
 import 'package:project_form/shared/theme.dart';
 import 'package:string_extensions/string_extensions.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -223,24 +224,14 @@ class _HomeAppState extends State<HomePage> {
                                         firstNameController.text = '';
                                         lastNameController.text = '';
                                         contactController.text = '';
-                                        showDialog(
+                                        AwesomeDialog(
                                           context: context,
-                                          builder: (context) => AlertDialog(
-                                            content: Row(
-                                              children: const [
-                                                Expanded(
-                                                  child: Text(
-                                                    'Contact Berhasil Ditambahkan',
-                                                  ),
-                                                ),
-                                                Icon(
-                                                  Icons.check,
-                                                  color: Colors.green,
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        );
+                                          dialogType: DialogType.success,
+                                          animType: AnimType.rightSlide,
+                                          title: 'Kontak berhasil ditambahkan',
+                                          btnOkOnPress: () {},
+                                        ).show();
+
                                         allContact.add(Contact(
                                             firstName: nameContact,
                                             lastName: lastNameContact,
@@ -283,22 +274,13 @@ class _HomeAppState extends State<HomePage> {
                                         firstNameController.text = '';
                                         lastNameController.text = '';
                                         contactController.text = '';
-                                        showDialog(
+                                        AwesomeDialog(
                                           context: context,
-                                          builder: (context) => AlertDialog(
-                                            content: Row(
-                                              children: const [
-                                                Text(
-                                                  'Contact Berhasil Diperbarui',
-                                                ),
-                                                Icon(
-                                                  Icons.check,
-                                                  color: Colors.green,
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        );
+                                          dialogType: DialogType.success,
+                                          animType: AnimType.rightSlide,
+                                          title: 'Kontak berhasil diperbarui',
+                                          btnOkOnPress: () {},
+                                        ).show();
                                         allContact[selectedIndex].firstName =
                                             nameContact;
                                         allContact[selectedIndex].lastName =
@@ -414,9 +396,19 @@ class _HomeAppState extends State<HomePage> {
                 ),
                 InkWell(
                   onTap: () {
-                    setState(() {
-                      allContact.removeAt(index);
-                    });
+                    AwesomeDialog(
+                      context: context,
+                      dialogType: DialogType.question,
+                      animType: AnimType.rightSlide,
+                      title:
+                          'Apa Anda yakin ingin menghapus ${allContact[index].firstName.toTitleCase} ${allContact[index].lastName.toTitleCase}?',
+                      btnCancelOnPress: () {},
+                      btnOkOnPress: () {
+                        setState(() {
+                          allContact.removeAt(index);
+                        });
+                      },
+                    ).show();
                   },
                   child: Icon(Icons.delete),
                 ),
