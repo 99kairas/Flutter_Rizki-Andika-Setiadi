@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:project_form/pages/ui/advance_form_page.dart';
 import 'package:project_form/pages/widget/contact.dart';
 import 'package:project_form/shared/theme.dart';
 import 'package:string_extensions/string_extensions.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:intl/intl.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,6 +21,10 @@ class _HomeAppState extends State<HomePage> {
   TextEditingController lastNameController = TextEditingController();
   TextEditingController contactController = TextEditingController();
   List<Contact> allContact = List.empty(growable: true);
+  DateTime _dueDate = DateTime.now();
+  final currentDate = DateTime.now();
+  Color _currentColor = Colors.cyan;
+  final isSelected = false;
 
   var selectedIndex = -1;
 
@@ -35,7 +42,7 @@ class _HomeAppState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: primaryColor,
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const Icon(Icons.account_box),
             const SizedBox(
@@ -51,12 +58,40 @@ class _HomeAppState extends State<HomePage> {
           ],
         ),
       ),
+      drawer: SafeArea(
+        child: Drawer(
+          child: Column(
+            children: [
+              ListTile(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AdvanceForm(),
+                    ),
+                  );
+                },
+                title: Text(
+                  'Advance Form',
+                  style: blackTextStyle.copyWith(
+                    fontSize: 15,
+                  ),
+                ),
+                leading: Icon(
+                  Icons.next_plan,
+                  color: primaryColor,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       body: Form(
         key: formKey,
         child: ListView(
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 50, right: 40, left: 40),
+              padding: const EdgeInsets.only(top: 50, right: 40, left: 40),
               child: Column(
                 children: [
                   Image.asset(
@@ -80,13 +115,13 @@ class _HomeAppState extends State<HomePage> {
                     style: greyTextStyle,
                     textAlign: TextAlign.start,
                   ),
-                  const SizedBox(
-                    height: 17,
-                  ),
+                  const SizedBox(height: 17),
                   const Divider(thickness: 1),
-                  const SizedBox(
-                    height: 17,
-                  ),
+
+                  // DATE PICKER
+                  buildDatePicker(),
+                  const SizedBox(height: 15),
+                  // END OF DATE PICKER
 
                   // FIRST NAME
                   TextFormField(
@@ -188,10 +223,13 @@ class _HomeAppState extends State<HomePage> {
                       filled: true,
                     ),
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
+                  const SizedBox(height: 15),
                   // END OF NOMOR HP
+
+                  // COLOR PICKER
+                  buildColorPicker(),
+                  const SizedBox(height: 15),
+                  // END OF COLOR PICKER
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -217,6 +255,7 @@ class _HomeAppState extends State<HomePage> {
                                         contactController.text.trim();
                                     String lastNameContact =
                                         lastNameController.text.trim();
+
                                     if (nameContact.isNotEmpty &&
                                         lastNameContact.isNotEmpty &&
                                         contactNumber.isNotEmpty) {
@@ -233,9 +272,19 @@ class _HomeAppState extends State<HomePage> {
                                         ).show();
 
                                         allContact.add(Contact(
-                                            firstName: nameContact,
-                                            lastName: lastNameContact,
-                                            contact: contactNumber));
+                                          firstName: nameContact,
+                                          lastName: lastNameContact,
+                                          contact: contactNumber,
+                                          date: _dueDate.toString(),
+                                          color: _currentColor,
+                                        ));
+
+                                        // LOG DEV
+                                        print(nameContact);
+                                        print(lastNameContact);
+                                        print('+62 ${contactNumber}');
+                                        print(_dueDate.toString());
+                                        print(_currentColor.toString());
                                       });
                                     }
                                   }
@@ -287,6 +336,10 @@ class _HomeAppState extends State<HomePage> {
                                             lastNameContact;
                                         allContact[selectedIndex].contact =
                                             contactNumber;
+                                        allContact[selectedIndex].date =
+                                            _dueDate.toString();
+                                        allContact[selectedIndex].color =
+                                            _currentColor;
                                         selectedIndex = -1;
                                       });
                                     }
@@ -340,82 +393,180 @@ class _HomeAppState extends State<HomePage> {
   Widget listContacts(int index) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Card(
-        elevation: 5,
-        child: ListTile(
-          leading: CircleAvatar(
-            backgroundColor: index % 2 == 0 ? Colors.cyan : primaryColor,
-            foregroundColor: whiteColor,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+      child: GestureDetector(
+        onTap: () {
+          firstNameController.text = allContact[index].firstName;
+          lastNameController.text = allContact[index].lastName;
+          contactController.text = allContact[index].contact;
+          setState(() {
+            selectedIndex = index;
+          });
+        },
+        child: Card(
+          elevation: 5,
+          child: ListTile(
+            leading: CircleAvatar(
+              // backgroundColor: index % 2 == 0 ? Colors.cyan : primaryColor,
+              backgroundColor: allContact[index].color,
+              foregroundColor: whiteColor,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(allContact[index].firstName.toTitleCase![0]),
+                  const SizedBox(
+                    width: 1,
+                  ),
+                  Text(allContact[index].lastName.toTitleCase![0]),
+                ],
+              ),
+            ),
+            title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(allContact[index].firstName.toTitleCase![0]),
-                const SizedBox(
-                  width: 1,
+                Text(
+                  '${allContact[index].firstName.toTitleCase} ${allContact[index].lastName.toTitleCase}',
+                  style: blackTextStyle.copyWith(
+                      fontSize: 16, fontWeight: semiBold),
                 ),
-                Text(allContact[index].lastName.toTitleCase![0]),
+                const SizedBox(
+                  height: 1,
+                ),
+                Text(
+                  '+62 ${allContact[index].contact}',
+                  style:
+                      greyTextStyle.copyWith(fontSize: 13, fontWeight: regular),
+                ),
+                Text(
+                  'Dibuat tanggal :  ${allContact[index].date}',
+                  style:
+                      greyTextStyle.copyWith(fontSize: 13, fontWeight: regular),
+                ),
               ],
             ),
-          ),
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                '${allContact[index].firstName.toTitleCase} ${allContact[index].lastName.toTitleCase}',
-                style:
-                    blackTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
+            trailing: SizedBox(
+              width: 70,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      firstNameController.text = allContact[index].firstName;
+                      lastNameController.text = allContact[index].lastName;
+                      contactController.text = allContact[index].contact;
+                      setState(() {
+                        selectedIndex = index;
+                      });
+                    },
+                    child: const Icon(Icons.edit),
+                  ),
+                  const SizedBox(width: 10),
+                  InkWell(
+                    onTap: () {
+                      AwesomeDialog(
+                        context: context,
+                        dialogType: DialogType.question,
+                        animType: AnimType.rightSlide,
+                        title:
+                            'Apa Anda yakin ingin menghapus ${allContact[index].firstName.toTitleCase} ${allContact[index].lastName.toTitleCase}?',
+                        btnCancelOnPress: () {},
+                        btnOkOnPress: () {
+                          setState(() {
+                            allContact.removeAt(index);
+                          });
+                        },
+                      ).show();
+                    },
+                    child: const Icon(Icons.delete),
+                  ),
+                ],
               ),
-              const SizedBox(
-                height: 1,
-              ),
-              Text(
-                '+62 ${allContact[index].contact}',
-                style:
-                    greyTextStyle.copyWith(fontSize: 13, fontWeight: regular),
-              ),
-            ],
-          ),
-          trailing: SizedBox(
-            width: 70,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                InkWell(
-                  onTap: () {
-                    firstNameController.text = allContact[index].firstName;
-                    lastNameController.text = allContact[index].lastName;
-                    contactController.text = allContact[index].contact;
-                    setState(() {
-                      selectedIndex = index;
-                    });
-                  },
-                  child: Icon(Icons.edit),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                InkWell(
-                  onTap: () {
-                    AwesomeDialog(
-                      context: context,
-                      dialogType: DialogType.question,
-                      animType: AnimType.rightSlide,
-                      title:
-                          'Apa Anda yakin ingin menghapus ${allContact[index].firstName.toTitleCase} ${allContact[index].lastName.toTitleCase}?',
-                      btnCancelOnPress: () {},
-                      btnOkOnPress: () {
-                        setState(() {
-                          allContact.removeAt(index);
-                        });
-                      },
-                    ).show();
-                  },
-                  child: Icon(Icons.delete),
-                ),
-              ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget buildDatePicker() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, right: 20, top: 15),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text('Date'),
+              GestureDetector(
+                  onTap: () async {
+                    final selectDate = await showDatePicker(
+                      context: context,
+                      initialDate: currentDate,
+                      firstDate: DateTime(1900),
+                      lastDate: DateTime(currentDate.year + 10),
+                    );
+                    setState(() {
+                      if (selectDate != null) {
+                        _dueDate = selectDate;
+                      }
+                    });
+                  },
+                  child: Text(
+                    DateFormat('dd MMMM yyyy').format(_dueDate),
+                    style:
+                        blueTextStyle.copyWith(fontWeight: bold, fontSize: 20),
+                  )),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildColorPicker() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 40),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('Color'),
+          const SizedBox(height: 10),
+          GestureDetector(
+            onTap: () {
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: const Text('Pick Your Color'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text('Save'),
+                        ),
+                      ],
+                      content: SingleChildScrollView(
+                        child: ColorPicker(
+                          pickerColor: _currentColor,
+                          onColorChanged: (color) {
+                            setState(() {
+                              _currentColor = color;
+                            });
+                          },
+                        ),
+                      ),
+                    );
+                  });
+            },
+            child: Container(
+              height: 100,
+              width: double.infinity,
+              color: _currentColor,
+            ),
+          ),
+          const SizedBox(height: 10),
+        ],
       ),
     );
   }

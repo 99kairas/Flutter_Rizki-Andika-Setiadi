@@ -6,12 +6,14 @@ Color blackColor = Color(0xff1C1B1F);
 Color greyColor = Color(0xff49454F);
 Color barColor = Color(0xffE7E0EC);
 Color whiteColor = Color(0xffFFFFFF);
+Color blueColor = Colors.blue;
 
 TextStyle blackTextStyle = GoogleFonts.roboto(color: blackColor);
 TextStyle primaryColorTextStyle = GoogleFonts.roboto(color: primaryColor);
 TextStyle greyTextStyle = GoogleFonts.roboto(color: greyColor);
 TextStyle barColorTextStyle = GoogleFonts.roboto(color: barColor);
 TextStyle whiteTextStyle = GoogleFonts.roboto(color: whiteColor);
+TextStyle blueTextStyle = GoogleFonts.roboto(color: blueColor);
 
 FontWeight light = FontWeight.w300;
 FontWeight regular = FontWeight.w400;

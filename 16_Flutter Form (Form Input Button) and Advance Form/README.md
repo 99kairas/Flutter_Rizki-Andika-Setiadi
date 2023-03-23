@@ -1,5 +1,7 @@
 # Rangkuman Materi Flutter Form dan Advance Form
 
+# Form <br>
+
 <details open>
 <summary>
 
@@ -143,5 +145,137 @@ IconButton(
     onPressed: (){},
 );
 ```
+
+</details>
+
+# Advance Form
+
+<details>
+<summary>
+
+## Date Picker
+
+</summary>
+Widget dimana user bisa memasukkan tanggal entah itu tanggal kelahiran, waktu pemesanan tiket, waktu reservasi restoran, jadwal meeting dan lain - lain. Cara membuat Date Picker : <br>
+
+1. Menggunakan fungsi bawaan flutter showDatePicker <br>
+2. Fungsi showDatePicker memiliki tipe data future <br>
+3. Menampilkan dialog material design date picker <br>
+Basic Codenya adalah : <br>
+
+```
+final selectDate = await showDatePicker(
+    context: context,
+    initialDate: currentDate,
+    firstDate: DateTime(1990),
+    lastDate: DateTime(currentDate.year + 5),
+);
+```
+
+4. Menambahkan packages intl di pubspec.yaml <br>
+5. Mempersiapkan variabel seperti : <br>
+
+```
+DateTime _dueDate = DateTime.now();
+final currentDate = DateTime.now();
+```
+
+6. Menambahkan fungsi showDatePicker di dalam onPressed : <br>
+
+```
+onPressed: () async {
+        final selectDate = await showDatePicker(
+            context: context,
+            initialDate: currentDate,
+            firstDate: DateTime(1990),
+            lastDate: DateTime(currentDate.year + 5),
+    ),
+    setState((){
+        if(selectDate != null){
+            _dueDate = selectDate;
+        }
+    });
+};
+```
+
+</details>
+
+<details>
+<summary>
+
+## Color Picker
+
+</summary>
+
+Widget ini digunakan agar user bisa memilih color dan penggunaan color picker bisa digunakan untuk berbagai macam kondisi. Berikut adalah cara membuat Color Picker : <br>
+1. Menggunakan packages flutter_colorpicker yang bisa diambil dari pub.dev <br>
+2. Sebelum digunakan, tambahkan packages tersebut di pubspec.yaml <br>
+3. Mempersiapkan variabel : <br>
+
+```
+Color _currentColor = Colors.orange;
+```
+
+4. Membangun UI nya dengan cara membuat Widget : <br>
+
+```
+Widget buildColorPicker(BuildContext context){
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+            const Text('Color'),
+            const SizedBox(height: 10),
+            Container(
+                height: 100,
+                width: double.infinity,
+                color: _currentColor,
+            ),
+            const SizedBox(height: 10),
+            Center(
+                child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(_currentColor),
+                    ),
+                    child: const Text('Pick Color'),
+                    onPressed: () {},
+                ),
+            ),
+        ],
+    );
+}
+```
+
+5. Menambahkan fungsi showDialog di dalam onPressed dengan return widget AlertDialog <br>
+
+```
+onPressed: () {
+    showDialog(
+        context: context,
+        builder: (context) {
+            return AlertDialog(
+                title: const Text('Pick Your Color');
+            ),
+            child: const Text('Save'),
+        },
+    );
+},
+```
+
+6. Jangan lupa untuk import packages flutter_colorpicker tersebut ke dalam file dart. <br>
+7. Membuat kode untuk penggunaan packages flutter_colorpicker <br>
+8. Packages flutter_colorpicker memiliki custom widget yang dapat digunakan, seperti BlockPicker, ColorPicker dan SlidePicker. <br>
+
+</details>
+
+<details>
+<summary>
+
+## File Picker
+
+</summary>
+
+Kemampuan widget untuk mengakses storage dan memilih serta membuka file. Cara membuat file picker : <br>
+1. Menggunakan packages file_picker dan open_file <br>
+2. Jangan lupa untuk menambahkan packages tersebut ke dalam pubspec.yaml dan mengimport packagesnya di dalam file dart. <br>
 
 </details>
