@@ -107,7 +107,7 @@ class _ContactUsState extends State<ContactUs> {
           ),
           const SizedBox(height: 10),
           TextFormField(
-            autovalidateMode: AutovalidateMode.always,
+            // autovalidateMode: AutovalidateMode.always,
             controller: _emailController,
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
@@ -203,6 +203,18 @@ class DialogSheet extends StatelessWidget {
               const SizedBox(height: 10),
               Text('Message : \n$message'),
               const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text('Back'),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 15),
             ],
           ),
         ),
