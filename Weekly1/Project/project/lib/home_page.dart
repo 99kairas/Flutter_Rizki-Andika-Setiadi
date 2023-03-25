@@ -1,3 +1,5 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -49,12 +51,31 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class ContactUs extends StatelessWidget {
+class ContactUs extends StatefulWidget {
   const ContactUs({super.key});
 
   @override
+  State<ContactUs> createState() => _ContactUsState();
+}
+
+class _ContactUsState extends State<ContactUs> {
+  final formKey = GlobalKey<FormState>();
+  final _usernameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _messageController = TextEditingController();
+
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _emailController.dispose();
+    _messageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
+    return Form(
+      key: formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -67,6 +88,7 @@ class ContactUs extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           TextFormField(
+            controller: _usernameController,
             keyboardType: TextInputType.text,
             decoration: InputDecoration(
               border: OutlineInputBorder(
@@ -75,9 +97,18 @@ class ContactUs extends StatelessWidget {
               labelText: 'Username',
               hintText: 'Masukan Username',
             ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return "Username tidak boleh kosong!";
+              } else {
+                return null;
+              }
+            },
           ),
           const SizedBox(height: 10),
           TextFormField(
+            autovalidateMode: AutovalidateMode.always,
+            controller: _emailController,
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               border: OutlineInputBorder(
@@ -86,10 +117,14 @@ class ContactUs extends StatelessWidget {
               labelText: 'Email',
               hintText: 'Masukan Email',
             ),
+            validator: (value) => EmailValidator.validate(value ?? "")
+                ? null
+                : "Kamu harus masukkan email",
           ),
           const SizedBox(height: 10),
           TextFormField(
-            keyboardType: TextInputType.multiline,
+            controller: _messageController,
+            keyboardType: TextInputType.text,
             maxLines: 4,
             decoration: InputDecoration(
               border: OutlineInputBorder(
@@ -98,14 +133,80 @@ class ContactUs extends StatelessWidget {
               labelText: 'Message',
               hintText: 'Masukan Message',
             ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return "Message tidak boleh kosong!";
+              } else {
+                return null;
+              }
+            },
           ),
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Submit'),
+          Container(
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () {
+                if (formKey.currentState!.validate()) {
+                  String message = _messageController.text.trim();
+                  String username = _usernameController.text.trim();
+                  String email = _emailController.text.trim();
+
+                  showDialog(
+                    context: context,
+                    builder: (context) => DialogSheet(
+                      email: email,
+                      username: username,
+                      message: message,
+                    ),
+                  );
+                  setState(() {
+                    _messageController.clear();
+                    _usernameController.clear();
+                    _emailController.clear();
+                  });
+                }
+              },
+              child: const Text('Submit'),
+            ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class DialogSheet extends StatelessWidget {
+  final String message;
+  final String username;
+  final String email;
+  const DialogSheet({
+    super.key,
+    required this.message,
+    required this.username,
+    required this.email,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      title: const Text('Contact Us'),
+      actions: [
+        Container(
+          width: double.infinity,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Username : \n$username'),
+              const SizedBox(height: 10),
+              Text('Email : \n$email'),
+              const SizedBox(height: 10),
+              Text('Message : \n$message'),
+              const SizedBox(height: 10),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
