@@ -12,7 +12,6 @@ import 'package:project/soal_section15/pages/contact_page.dart';
 import 'package:project/soal_section15/pages/create_contact_page.dart';
 import 'package:project/soal_section15/provider/contact_provider.dart';
 import 'package:project/soal_section17/pages/contacts_page.dart';
-import 'package:project/soal_section17/pages/details_contact.dart';
 import 'package:provider/provider.dart';
 
 void main() {

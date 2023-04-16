@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:project/soal_section15/pages/create_contact_page.dart';
-import 'package:project/soal_section17/pages/create_page.dart';
 import 'package:project/soal_section17/pages/details_contact.dart';
 import 'package:project/soal_section17/services/contact_service.dart';
 
@@ -18,7 +17,7 @@ class ContactsWithApiPage extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const CreateContactWithApiPage(),
+                builder: (context) => const CreateContactPage(),
               ));
         },
         child: CircleAvatar(
