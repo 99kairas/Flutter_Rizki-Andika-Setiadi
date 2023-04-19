@@ -21,5 +21,12 @@ void main() {
 
       expect(find.text('Contacts'), findsOneWidget);
     });
+    // testWidgets('Test halaman yang belum ada', (WidgetTester tester) async {
+    //   await tester.pumpWidget(const MaterialApp(
+    //     home: NullPage(),
+    //   ));
+
+    //   expect(find.text('Null Page'), findsOneWidget);
+    // });
   });
 }
